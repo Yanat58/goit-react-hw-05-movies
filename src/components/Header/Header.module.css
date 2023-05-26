@@ -4,7 +4,7 @@ header {
 }
 
 .container {
-  padding: 20px 150px;
+  padding: 20px;
   display: flex;
   align-items: center;
 
@@ -20,7 +20,7 @@ header {
 }
 
 .logo__img {
-  margin-left: 80px;
+  margin-left: 115px;
 }
 
 .navLink {

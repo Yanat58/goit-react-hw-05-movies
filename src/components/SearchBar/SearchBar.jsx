@@ -14,7 +14,7 @@ const SearchBar = ({ onSubmit }) => {
     e.preventDefault();
 
     if (query.trim() === '') {
-      toast.error('Enter a search term.');
+      toast.error('Enter the title of the movie to search');
       return;
     }
 
@@ -23,20 +23,22 @@ const SearchBar = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={onSubmitForm}>
-      <input
-        className={css.input}
-        type="text"
-        value={query}
-        autoComplete="off"
-        autoFocus
-        placeholder="Search film"
-        onChange={onChangeInput}
-      />
-      <button className={css.btn__form} type="submit">
-        Search
-      </button>
-    </form>
+    <div className={css.container}>
+      <form onSubmit={onSubmitForm}>
+        <input
+          className={css.input}
+          type="text"
+          value={query}
+          autoComplete="off"
+          autoFocus
+          placeholder="Search film"
+          onChange={onChangeInput}
+        />
+        <button className={css.btn__form} type="submit">
+          Search
+        </button>
+      </form>
+    </div>
   );
 };
 
