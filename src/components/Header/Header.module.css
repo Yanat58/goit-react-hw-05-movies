@@ -1,0 +1,38 @@
+header {
+  display: contents;
+  border-bottom: 2px solid #ececec;
+}
+
+.container {
+  padding: 20px 150px;
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid var(--text-color);
+
+  background: linear-gradient(145deg, #ccd8f8, #f0c3df);
+}
+
+.nav__list {
+  display: flex;
+  margin-left: 80px;
+  gap: 40px;
+}
+
+.logo__img {
+  margin-left: 80px;
+}
+
+.navLink {
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--text-title);
+  text-transform: uppercase;
+}
+
+.active {
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--text-activ);
+  text-transform: uppercase;
+}
