@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { useState, useEffect, Suspense } from 'react';
 import { toast } from 'react-toastify';
-import fetchMovie from 'services/movieApi';
+import {fetchMovie} from 'services/api';
 import Loader from 'components/Loader/Loader';
 import fotoAlternate from 'utilities/images/meh2.png';
 import css from './MovieCardDetails.module.css';
@@ -61,9 +61,7 @@ const MovieCardDetails = () => {
         <section className={css.container}>
           <Link
             className={css.btn__back}
-            to={
-              location?.state?.from?.pathname + location?.state?.from?.search ??
-              '/'
+            to={location?.state?.from ?? '/'
             }
           >
             Back
@@ -94,7 +92,7 @@ const MovieCardDetails = () => {
                 <span className={css.text__detaile}>{movie?.overview}</span>
               </p>
               <p className={css.text__title}>
-                User score:
+                User score: 
                 <span className={css.text__detaile}>
                   {Math.round(movie?.vote_average * 10)} %
                 </span>

@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import fetchReviews from 'services/reviewsApi';
+import {fetchReviews} from 'services/api';
 import Loader from 'components/Loader/Loader';
 import css from './Reviews.module.css';
 

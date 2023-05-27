@@ -1,9 +1,8 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Layout from './Layout/Layout';
-import Loader from './Loader/Loader';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const MoviesPage = lazy(() => import('../pages/MoviesPage'));
@@ -14,7 +13,6 @@ const Reviews = lazy(() => import('../components/Reviews/Reviews'));
 const App = () => {
   return (
     <>
-      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
@@ -26,7 +24,6 @@ const App = () => {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
-      </Suspense>
 
       <ToastContainer theme="colored" autoClose={2500} />
     </>

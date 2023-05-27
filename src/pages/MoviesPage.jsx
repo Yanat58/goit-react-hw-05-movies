@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import fetchSearchMovie from 'services/searchMovieApi';
+import {fetchSearchMovie} from 'services/api';
 import SearchMoviesList from 'components/SearchMoviesList/SearchMoviesList';
 import SearchBar from 'components/SearchBar/SearchBar';
 
@@ -10,22 +10,22 @@ const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams('');
 
   const query = searchParams.get('query') ?? '';
-  const page = searchParams.get('page') ?? 1;
+  // const page = searchParams.get('page') ?? 1;
 
   useEffect(() => {
     if (!query) {
       return;
     }
 
-    fetchSearchMovie(query, page)
+    fetchSearchMovie(query)
       .then(({ results }) => {
         setMovies([...results]);
       })
       .catch(error => toast.error(error.message, 'Something went wrong!'));
-  }, [page, query]);
+  }, [ query]);
 
   const getSearchRequest = value => {
-    setSearchParams({ query: value, page: 1 });
+    setSearchParams({ query: value  });
   };
   return (
     <div

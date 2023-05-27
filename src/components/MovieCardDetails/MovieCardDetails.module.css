@@ -85,8 +85,10 @@
 }
 
 .text__detaile {
+  margin-left: 5px;
   font-weight: 400;
   font-size: 17px;
+  text-transform:capitalize;
   color: var(--text-color);
 }
 

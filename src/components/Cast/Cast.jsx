@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import fetchCast from 'services/castApi';
+import {fetchCast} from 'services/api';
 import Loader from 'components/Loader/Loader';
 import fotoAlternate from 'utilities/images/not-found.png';
 import css from './Cast.module.css';
@@ -10,13 +10,13 @@ const Cast = () => {
   const [cast, setCast] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const params = useParams();
-  const id = params.movieId;
+  const {movieId} = useParams();
+  // const id = params.movieId;
 
   useEffect(() => {
     setIsLoading(true);
 
-    fetchCast(id)
+    fetchCast(movieId)
       .then(({ cast }) => {
         cast.map(({ character, original_name, profile_path }) => ({
           character,
@@ -28,7 +28,7 @@ const Cast = () => {
       })
       .catch(error => toast.error(error.message, 'Something went wrong!'))
       .finally(() => setIsLoading(false));
-  }, [id]);
+  }, [movieId]);
 
   return (
     <div className={css.wrapper}>
